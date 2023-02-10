@@ -4,11 +4,14 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+body {
+  background-image: linear-gradient(90deg, #8dd1ff, #5e5eff);
+}
+
 .container {
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   margin: auto;
-  background-color: #c3e7ff;
 }
 .container .player {
   width: 200px;
@@ -30,6 +33,7 @@
   justify-content: space-between;
 }
 .container .board .info {
+  background-color: rgba(0, 0, 0, 0.15);
   width: 300px;
   height: 300px;
   position: absolute;
@@ -60,8 +64,6 @@
 .container .score {
   width: 200px;
   margin: auto;
-  display: block;
-  justify-content: center;
   padding: 10px 50px 20px 50px;
   font-size: 20px;
 }

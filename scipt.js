@@ -55,26 +55,23 @@ cellElem.forEach(cell => {
 
 function checkWin(arr, win) {
   let victory = false;
-  for (let i = 0; i < win.length; i++) {
-    if (win[i].every(el => arr.includes(el))) {
-      victory =  true;
+    for (let i = 0; i < win.length; i++) {
+      if (win[i].every(el => arr.includes(el))) {
+        victory =  true;
+        }
+      }
+    if (victory) {
+      stopGame();
+    } else {
+      if (counter === 9) {
+        drow();
       }
     }
-  if (victory) {
-    stopGame();
-  }
-  if (counter === 9) {
-    stopGame();
-  }
+  
 }
 
 function stopGame() {
-  if (counter === 9) {
-    playerElem.innerHTML = 'Ничья!';
-    drowScore++;
-    drowScoreElem.innerHTML = `${drowScore}`;
-    newGame();
-  } else {
+  
     if (counter%2 !== 0) {
       playerElem.innerHTML = 'Победил игрок X!';
       xScore++;
@@ -86,10 +83,18 @@ function stopGame() {
       oScoreElem.innerHTML = `${oScore}`;
       newGame();
     }
+}
+
+function drow() {
+  if (counter === 9) {
+    playerElem.innerHTML = 'Ничья!';
+    drowScore++;
+    drowScoreElem.innerHTML = `${drowScore}`;
+    newGame();
   }
 }
 
-function newGame() {
+function newGame() {setTimeout(() => {
   infoElem.parentElement.style = 'display: flex';
   cellElem.forEach(elem => {
     elem.innerHTML = '';
@@ -97,4 +102,5 @@ function newGame() {
   });
   playerX = [];
   playerO = [];
+  }, 0);
 }
